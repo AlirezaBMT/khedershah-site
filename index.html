@@ -3,91 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>آغاز ثبت‌نام نمایندگان</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
-      background: linear-gradient(to top right, #e0f7fa, #ffffff);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .countdown-card {
-      background: #ffffff;
-      padding: 40px 25px;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      font-family: Tahoma, sans-serif;
+      background: #f9f9f9;
       text-align: center;
-      max-width: 500px;
-      width: 100%;
-      transition: transform 0.3s;
-    }
-    .countdown-card:hover {
-      transform: translateY(-5px);
+      padding: 50px;
+      color: #333;
     }
     h1 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #00796b;
-    }
-    p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 25px;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
     }
     #countdown {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: bold;
-      color: #d32f2f;
-      margin-bottom: 15px;
+      margin: 20px 0;
+      color: #007BFF;
     }
     #message {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 25px;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
     }
     #registerLink {
-      font-weight: 700;
-      font-size: 1.15rem;
+      display: none;
       padding: 12px 30px;
+      font-size: 1.1rem;
+      background-color: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
-
-    /* ریسپانسیو موبایل */
-    @media (max-width: 576px) {
-      .countdown-card {
-        padding: 30px 15px;
-      }
-      h1 {
-        font-size: 1.6rem;
-      }
-      #countdown {
-        font-size: 1.6rem;
-      }
-      #registerLink {
-        font-size: 1rem;
-        padding: 10px 20px;
-      }
+    #registerLink:hover {
+      background-color: #218838;
+    }
+    .card {
+      background: #fff;
+      padding: 30px;
+      max-width: 500px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
 
-  <div class="countdown-card">
+  <div class="card">
     <h1>📢 آغاز ثبت‌نام نمایندگان روستای خدرشاه</h1>
-    <p>زمان باقی‌مانده تا آغاز ثبت‌نام:</p>
+    <p>ثبت‌نام از:</p>
     <div id="countdown">در حال محاسبه...</div>
     <div id="message"></div>
-    <a href="register_candidate.php" id="registerLink" class="btn btn-success" style="display:none;">ثبت‌نام کنید</a>
+    <a href="register_candidate.php" id="registerLink">✅ ثبت‌نام کنید</a>
   </div>
 
   <script>
     // تاریخ آغاز ثبت‌نام
-    const startDate = new Date("2025-09-01T00:00:00"); // YYYY-MM-DD
+    const startDate = new Date("2025-09-01T00:00:00");
 
     function updateCountdown() {
       const now = new Date();
@@ -106,7 +79,7 @@
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
       document.getElementById('countdown').textContent =
-        `${days} روز، ${hours} ساعت و ${minutes} دقیقه مانده`;
+        `${days} روز، ${hours} ساعت، ${minutes} دقیقه مانده`;
     }
 
     updateCountdown(); // بار اول
